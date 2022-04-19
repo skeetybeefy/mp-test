@@ -3,15 +3,32 @@ import { makeAutoObservable, runInAction } from "mobx";
 import { createContext } from "react";
 import sample from "./data.json";
 
-function sleep(ms) {
+function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-class Store {
+export interface Location {
+  locationID: number;
+  name: string;
+}
+
+export interface Env {
+  envID: number;
+  name: string;
+}
+
+export interface Server {
+  serverID: number;
+  name: string;
+  locationID: number;
+  envID: number;
+}
+
+export class Store {
   isLoaded = false;
-  locations = [];
-  envs = [];
-  servers = [];
+  locations: Location[] = [];
+  envs: Env[] = [];
+  servers: Server[] = [];
 
   fetchData = async () => {
     await sleep(3000);
