@@ -1,0 +1,119 @@
+.form {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid lightgray;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form:focus-within {
+  border-color: blue;
+}
+
+.topRow {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+
+.deleteButton {
+  all: unset;
+  box-sizing: border-box;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 30px;
+}
+
+.gridCell {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 80px auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.label {
+  align-self: center;
+  justify-self: end;
+}
+
+.select {
+  appearance: none;
+}
+
+.select, .input {
+  border: 2px solid lightgray;
+  border-radius: 4px;
+}
+
+.locationField {
+  padding: 10px;
+  width: 100%;
+  font-weight: bold;
+}
+
+.displayedField {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.serversParagraph:empty::before {
+  content: "";
+  display: inline-block;
+}
+
+.withIcon {
+  padding-left: 34px;
+}
+
+.faIcon {
+  position: absolute;
+  width: 20px;
+  top: calc(50% - 0.5em);
+  left: 10px;
+  pointer-events: none;
+}
+
+.faDropdownIcon {
+  position: absolute;
+  width: 20px;
+  top: calc(50% - 0.5em);
+  right: 10px;
+  pointer-events: none;
+}
+
+.controlElementWithIconContainer {
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .form {
+    padding: 20px;
+  }
+
+  .hint {
+    grid-column: 1 / span 2;
+  }
+
+  .gridContainer {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hint {
+    grid-column: 1 / span 3;
+  }
+
+  .gridContainer {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
